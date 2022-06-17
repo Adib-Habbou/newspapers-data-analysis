@@ -1,0 +1,11 @@
+,0,1,2,3,4,5,6,7,8,9
+Topic 1,"('0.026', 'onlin')","('0.025', 'digit')","('0.025', 'exam')","('0.022', 'candid')","('0.020', 'internet')","('0.019', 'network')","('0.017', 'port')","('0.015', 'baccalaur')","('0.015', 'facebook')","('0.014', 'survey')"
+Topic 2,"('0.017', 'polisario')","('0.013', 'spanish')","('0.009', 'trump')","('0.008', 'resolut')","('0.006', 'migrant')","('0.006', 'migrat')","('0.005', 'vote')","('0.005', 'secretari')","('0.005', 'autonomi')","('0.005', 'sovereignti')"
+Topic 3,"('0.029', 'learner')","('0.016', 'classroom')","('0.014', 'method')","('0.011', 'grammar')","('0.011', 'text')","('0.010', 'target')","('0.009', 'reader')","('0.009', 'facebook')","('0.008', 'comprehens')","('0.007', 'border')"
+Topic 4,"('0.008', 'discours')","('0.007', 'attitud')","('0.007', 'book')","('0.006', 'concept')","('0.006', 'influenc')","('0.006', 'theori')","('0.006', 'principl')","('0.006', 'ident')","('0.006', 'linguist')","('0.005', 'religion')"
+Topic 5,"('0.014', 'vaccin')","('0.011', 'bank')","('0.010', 'agricultur')","('0.009', 'travel')","('0.008', 'price')","('0.008', 'tourism')","('0.008', 'export')","('0.007', 'food')","('0.007', 'test')","('0.007', 'flight')"
+Topic 6,"('0.015', 'parent')","('0.012', 'classroom')","('0.009', 'exam')","('0.007', 'applic')","('0.006', 'write')","('0.005', 'answer')","('0.005', 'graduat')","('0.005', 'degre')","('0.005', 'motiv')","('0.005', 'grade')"
+Topic 7,"('0.007', 'violenc')","('0.005', 'sexual')","('0.004', 'polic')","('0.004', 'love')","('0.004', 'girl')","('0.004', 'religion')","('0.004', 'victim')","('0.003', 'protest')","('0.003', 'stori')","('0.003', 'street')"
+Topic 8,"('0.015', 'rank')","('0.011', 'innov')","('0.010', 'youth')","('0.009', 'confer')","('0.008', 'competit')","('0.006', 'british')","('0.006', 'team')","('0.006', 'vocat')","('0.006', 'professor')","('0.005', 'engin')"
+Topic 9,"('0.013', 'algerian')","('0.012', 'israel')","('0.008', 'terror')","('0.007', 'iran')","('0.007', 'regim')","('0.007', 'terrorist')","('0.007', 'isra')","('0.006', 'democraci')","('0.006', 'saudi')","('0.006', 'west')"
+Topic 10,"('0.021', 'mother')","('0.016', 'tongu')","('0.013', 'literaci')","('0.011', 'tamazight')","('0.010', 'curriculum')","('0.008', 'linguist')","('0.007', 'amazigh')","('0.007', 'unesco')","('0.007', 'programm')","('0.007', 'coloni')"
