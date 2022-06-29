@@ -1,4 +1,4 @@
-# NLP-Data-Scientist-HCP-Intership
+# Moroccan News Data Analysis
 
 Intership at the High Commission for Planning of Morocco as an NLP Data Scientist, my main tasks were:
 
