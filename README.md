@@ -5,4 +5,5 @@ Intership at the High Commission for Planning of Morocco as an NLP Data Scientis
 - Web Scraping moroccan websites to collect multilingual textual data using *Selenium* and *BeautifulSoup4*;
 - Visualization of textual data using *Wordcloud*, *Seaborn*, *Plotly* and *Matplotlib*;
 - Topic Modeling with Latent Dirichlet Allocation using *Nltk*, *Gensim* and *pyLDAvis*;
-- Text Classification with Logistic Regression, Random Forest, Decision Tree, KNN, SVM using *Sklearn*.
+- Text Classification with Logistic Regression, Random Forest, KNN, SVM, SGD, MLP using *Sklearn*;
+- DashBoard with *Streamlit*.
