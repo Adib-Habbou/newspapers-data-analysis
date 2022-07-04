@@ -6,4 +6,4 @@ Intership at the High Commission for Planning of Morocco as an NLP Data Scientis
 - Visualization of textual data using *Wordcloud*, *Seaborn*, *Plotly* and *Matplotlib*;
 - Topic Modeling with Latent Dirichlet Allocation using *Nltk*, *Gensim* and *pyLDAvis*;
 - Text Classification with Logistic Regression, Random Forest, KNN, SVM, SGD, MLP using *Sklearn*;
-- DashBoard with *Streamlit*.
+- DashBoard presentig results of the web scraping, the topic modeling and the text classification with *Streamlit*.
