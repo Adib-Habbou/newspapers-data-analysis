@@ -1,0 +1,475 @@
+\documentclass[10pt,sans,usenames,dvipsnames,english,compress]{beamer}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{etoolbox}
+
+\mode<presentation>
+
+\usetheme{Warsaw}
+\useoutertheme[subsection=false]{miniframes}
+
+% Fix the crop bullets in the headline
+\makeatletter
+\setbeamertemplate{headline}
+{
+  \vskip-0.8ex
+  \begin{beamercolorbox}{section in head/foot}
+  \vskip2pt\insertnavigation{\paperwidth}\vskip4pt
+  \end{beamercolorbox}%
+}
+\makeatother
+
+%infolines footer
+\defbeamertemplate*{footline}{infolines theme}
+{
+	\leavevmode%
+	\hbox{%
+	\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+	 \usebeamerfont{author in head/foot}\insertshortauthor%~~(\insertshortinstitute)
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+	 \usebeamerfont{title in head/foot}\insertshorttitle
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+	 \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+	 \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+
+\graphicspath{{images/}}
+
+\setbeamersize{text margin left=15pt,text margin right=15pt}
+
+% Disable navigation icons
+\beamertemplatenavigationsymbolsempty
+
+% Titlepage
+\title{Analyse des données textuelles d'articles de presse}
+\subtitle{Présentation Stage Première Année}
+\author[Adib Habbou]{Adib Habbou}
+\date{15 juillet 2022}
+\institute[ENSIIE]{Haut-Commissariat au Plan du Maroc}
+
+% Line vertical spacing
+\setstretch{1.2}
+
+% See for colors names: https://en.wikibooks.org/wiki/LaTeX/Colors
+
+\lstdefinelanguage{yaml}{
+keywords={true,false,null,y,n},
+	keywordstyle=\color{darkgray}\bfseries,
+	basicstyle=\color{black}\bfseries\tiny,
+	sensitive=false,
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{gray},
+	comment=[l]{\#},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{blue}\mdseries\ttfamily,
+	moredelim=[l][\color{orange}]{\&},
+	moredelim=[l][\color{magenta}]{*},
+	moredelim=**[il][\color{red}\mdseries{:}\color{blue}\mdseries]{:},
+	morestring=[b]',
+	morestring=[b]",
+	literate =
+		{---}{{\ProcessThreeDashes}}3
+		{>}{{\textcolor{red}\textgreater}}1     
+		{|}{{\textcolor{red}\textbar}}1 
+		{\ -\ }{{\mdseries\ -\ }}3,
+}
+
+\lstset{
+	language=java,
+	basicstyle=\normalsize\normalfont\ttfamily\tiny,
+	upquote=true,
+	aboveskip={1\baselineskip},
+	columns=fullflexible,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	identifierstyle=\ttfamily,
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{gray},
+	rulecolor=\color{black},
+}
+
+\begin{document}
+
+\section{Page de titre}
+\begin{frame}[plain]
+	\vspace{0.6cm}
+	\begin{minipage}{\textwidth}
+		\centering
+		\raisebox{-0.5\height}{\includegraphics[width=0.25\textwidth]{logo hcp vertical.png}}
+		\hspace*{2cm}
+		\raisebox{-0.5\height}{\includegraphics[width=0.25\textwidth]{logo ensiie.png}}
+	\end{minipage}
+	\vspace{0.6cm}
+	\titlepage
+\end{frame}
+
+\section{Présentation HCP}
+\subsection{HCP}
+\begin{frame}{Haut-Commissariat au Plan}
+	\begin{textblock*}{3cm}(9cm,2cm) % {block width} (coords)
+		\includegraphics[width=3.5cm]{logo hcp horizontal.png}
+	\end{textblock*}
+ 
+        \vspace{1cm}
+        
+	\begin{itemize}
+		\item \textbf{Structure ministérielle} marocaine crée en septembre 2003
+		\item Principal producteur de l’\textbf{information statistique} au Maroc
+            \item Locaux dans les quartiers d'\emph{Agdal} et de \emph{Hay Riad} à Rabat
+		\item Admet une \textbf{Direction des Systèmes d’Information Statistique}
+	\end{itemize}
+\end{frame}
+
+\subsection{DSIS}
+\begin{frame}{Direction des Systèmes d’Information Statistique}
+	\begin{textblock*}{3cm}(9cm,2cm) % {block width} (coords)
+		\includegraphics[width=3.5cm]{logo hcp horizontal.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+	\begin{itemize}
+		\item \textbf{Collecte des données} à travers différentes sources
+            \item \textbf{Nettoyage}, \textbf{classification} et \textbf{tri} des données
+            \item \textbf{Stockage} des données dans les \textbf{Bases de Données Statistiques}
+            \item \textbf{Analyse des données} pour extraire des \textbf{indicateurs}
+            \item Publication de \textbf{rapports} \emph{(trimestriel, semestriel et annuel)}
+	\end{itemize}
+\end{frame}
+
+\section{Objectifs}
+\subsection{Environnement}
+\begin{frame}{Environnement}
+	\begin{itemize}
+		\item Encadré par \textbf{Oumaima Hourrane}, doctorante et ingénieur en ML
+		\item Notebook Python sur \textbf{Google Colaboratory}
+            \item Script Python sur \textbf{PyCharm}\newline
+            \item Trois \textbf{sites de presse en ligne} marocaine étudié :
+                \begin{enumerate}
+                    \item \normalsize{Morocco World News $\rightarrow$ Anglais}
+                    \item \normalsize{Le Matin $\rightarrow$ Français}
+                    \item \normalsize{Hespress $\rightarrow$ Arabe}
+                \end{enumerate}
+        \end{itemize}
+\end{frame}
+
+\subsection{Problématique}
+\begin{frame}{Problématique}
+	Besoin de données sur la réalité économique, sociale et culturelle du pays
+	\begin{itemize}
+		\visible<1->{\item[$\rightarrow$] {Études ministérielles et gouvernementales}}
+		\visible<1->{\item[$\rightarrow$] {Études de marché pour le secteur privé}}
+            \visible<1->{\item[$\rightarrow$] {Études académiques et universitaires}}
+	\end{itemize}
+
+	\visible<2->{
+		\begin{block}{Existant}
+			\begin{itemize}
+				\item Observatoire des conditions de vie des ménages
+				\item Centre d’études et de recherches démographiques
+                \item Recensement générale de la population et de l'habitat
+			\end{itemize}
+		\end{block}
+	}
+
+	\visible<3->{
+		\begin{exampleblock}{Solutions}
+			\begin{itemize}
+				\item Web Scraping
+				\item Machine Learning
+			\end{itemize}
+		\end{exampleblock}
+	}
+\end{frame}
+
+\section{Technologies}
+\subsection{Web Scraping}
+\begin{frame}{Web Scraping}
+	\begin{textblock*}{3cm}(9.5cm,1.5cm) % {block width} (coords)
+		\includegraphics[width=2.5cm]{logo selenium.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+        \begin{block}{}
+		Technique de récupération de données à partir d'un site Web dynamique
+	\end{block}
+
+        \vspace{0.5cm}
+
+	\visible<2->{\begin{itemize}
+		\item Interaction avec les navigateurs via un driver
+            \item Navigation sur une page web dynamique (formulaires, boutons...) 
+            \item Localisation des éléments (id, name, xpath, class name...)
+	\end{itemize}}
+\end{frame}
+
+\subsection{Textual Data Visualization}
+\begin{frame}{Textual Data Visualization}
+	\begin{textblock*}{3cm}(1cm,2.2cm)
+		\includegraphics[width=3.5cm]{logo plotly.png}
+	\end{textblock*}
+
+	\begin{textblock*}{3cm}(9.5cm,2cm)
+		\includegraphics[width=2cm]{logo matplotlib.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+	\begin{block}{}
+		Représentation visuelle du contenu d’un document textuel
+	\end{block}
+
+        \vspace{0.5cm}
+
+	\visible<2->{\begin{itemize}
+		\item Répartition des catégories, auteurs, dates avec \textbf{Plotly, Matplotlib}
+            \item Synthèse des mots clés d'un texte avec \textbf{WordCloud}
+	\end{itemize}}
+\end{frame}
+
+\subsection{Topic Modeling}
+\begin{frame}{Topic Modeling}
+	\begin{textblock*}{3cm}(1cm,2.2cm)
+		\includegraphics[width=3.5cm]{logo gensim.png}
+	\end{textblock*}
+
+	\begin{textblock*}{3cm}(9.5cm,1.5cm)
+		\includegraphics[width=2cm]{logo nltk.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+	\begin{block}{}
+		Modèle non supervisé permettant d'extraire les sujets de documents
+	\end{block}
+
+        \vspace{0.5cm}
+
+	\visible<2->{\begin{itemize}
+		\item Preprocessing des données avec \textbf{NLTK}
+            \item Application du modèle avec \textbf{Gensim}
+	\end{itemize}}
+\end{frame}
+
+\subsection{Text Classification}
+\begin{frame}{Text Classification}
+	\begin{textblock*}{3cm}(9cm,2cm)
+		\includegraphics[width=3cm]{logo sklearn.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+	\begin{block}{}
+		Modèle supervisé nécessitant un entraînement sur des données labélisées
+	\end{block}
+
+        \vspace{0.5cm}
+
+	\visible<2->{\begin{itemize}
+		\item Preprocessing des données avec \textbf{NLTK}
+            \item Application de différents modèles avec \textbf{Scikit-Learn}
+            \item Évaluation des modèles de Machine Learning avec \textbf{Scikit-Learn}
+	\end{itemize}}
+\end{frame}
+
+\subsection{Dashboard}
+\begin{frame}{Dashboard}
+	\begin{textblock*}{3cm}(9cm,2cm)
+		\includegraphics[width=3cm]{logo streamlit.png}
+	\end{textblock*}
+
+	\vspace{1cm}
+
+	\begin{block}{}
+		Application Web pour présenter visuellement les résultats obtenus
+	\end{block}
+
+        \vspace{0.5cm}
+
+	\visible<2->{\begin{itemize}
+		\item Transformation de script Python en application Web avec \textbf{Streamlit}
+            \item Intégration de code HTML généré par \textbf{pyLDAvis}
+            \item Intégration de graphiques crée avec \textbf{Plotly}
+	\end{itemize}}
+\end{frame}
+
+\section{Approches}
+\subsection{Web Scraping}
+\begin{frame}{Web Scraping}
+	\begin{exampleblock}{Méthodologie adoptée}
+		\begin{enumerate}
+             \item Parcours des catégories : https://www.site.com/category
+            \item Parcours des pages : https://www.site.com/category/page\_number
+            \item Extraction des liens de chaque article
+            \item Parcours des liens d'articles et récupération des données
+            \end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+\subsection{Topic Modeling}
+\begin{frame}{Topic Modeling - LDA}
+	\begin{exampleblock}{Latent Dirichlet Allocation}
+		\begin{itemize}
+            \item Chaque document noté $M$ est un mélange $\theta$ d’un petit nombre de sujets $\alpha$
+            \item Attribue topic à chaque mot selon une distribution de Dirichlet : $$\theta_{i} \sim Dir(\alpha) \: \: pour \: \: 1 \leq i \leq M \: \: avec \: \: \alpha < 1$$
+            \item Mise à jour du topic lié à chaque mot en fonction de la probabilité : $$\mathcal{P}(t | d) \: \: x \: \: \mathcal{P}(w | t)$$
+          \end{itemize}
+	\end{exampleblock}
+
+        \visible<2->{\begin{block}{Calcul de probabilité}
+		\begin{itemize}
+            \item $\mathcal{P}(t | d)$ : la probabilité que le document $d$ soit assigné au topic $t$
+            \item $\mathcal{P}(w | t)$ : la probabilité que le thème $t$ soit assigné au mot $w$
+            \end{itemize}
+	\end{block}}
+
+\end{frame}
+
+\begin{frame}{Topic Modeling - LDA}
+	\begin{exampleblock}{Preprocessing}
+            \begin{itemize}
+            \item Tokenisation : tout en minuscule, suppression ponctuation
+            \item Lemmatisation : tout au présent et 1ère personne
+            \item Racinisation : réduction à la forme radicale
+            \item Bag of Words : dictionnaires (mots/nombre d’occurrences)
+            \end{itemize}
+	\end{exampleblock}
+
+        \visible<2->{\begin{block}{Visualisation \textbf{pyLDAvis}}
+		\begin{itemize}
+            \item Extraction des informations du topic model
+            \item Réalisation d'une visualisation Web interactive
+            \end{itemize}
+	\end{block}}
+\end{frame}
+
+\subsection{Text Classification}
+\begin{frame}{Text Classification}
+	\begin{exampleblock}{Modèles de Machine Learning}
+            \begin{itemize}
+            \item K Nearest Neighbour
+            \item Logistic Regression
+            \item Random Forest
+            \item Support Vector Machine
+            \item Stochastic Gradient Descent
+            \item Multi-Layer Perceptron
+            \end{itemize}
+	\end{exampleblock}
+
+        \visible<2->{\begin{block}{Évaluation des modèles}
+            \begin{itemize}
+            \item Précision : taux de prédictions positives correctes
+            \item Recall : taux de positifs correctement prédits
+            \item F1-score : capacité d’un modèle à bien prédire les individus positifs
+            \item Matrice Confusion : ligne catégorie réelle, colonne catégorie estimée
+            \end{itemize}
+	\end{block}}
+\end{frame}
+
+\subsection{Dashboard}
+\begin{frame}{Dashboard}
+	\begin{exampleblock}{Contenu du Dashboard}
+            \begin{itemize}
+            \item Échantillon du data set
+            \item Résultat du topic modeling
+            \item Répartition des catégories et des auteurs
+            \item Précisions des modèles de classification
+            \item Matrices de confusion des modèles
+            \end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+
+\section{Résultats}
+\subsection{Web Scraping}
+\begin{frame}{Résultat Web Scraping}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.42]{df_scrap.png}
+    \caption{Data Frame de Morocco World News}
+    \end{figure}
+\end{frame}
+
+\subsection{Topic Modeling}
+\begin{frame}{Résultat Topic Modeling}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.22]{pyLDAvis.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Text Classification}
+\begin{frame}{Précisions des modèles}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.4]{ACCpng.png}
+    \caption{Précision des différents modèles}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Matrice de confusion}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.4]{conf.png}
+    \end{figure}
+\end{frame}
+
+\subsection{Dashboard}
+\begin{frame}{Résultat Dashboard}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.3]{Dash 1.png}
+    \end{figure}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+	\begin{exampleblock}{Apport}
+		\begin{itemize}
+		\item Étudier la faisabilité de l’ensemble du processus
+		\item Identifier l’ensemble des technologies nécessaires
+		\item Sélectionner les modèles de \emph{Machine Learning} les plus performants
+		\end{itemize}
+	\end{exampleblock}
+
+	\visible<2->{
+		\begin{alertblock}{Perspective}
+			\begin{itemize}
+                \item Infrastructure d’extraction et de nettoyage des données
+                \item Pipeline d’application du Topic Modeling et de la Text Classification
+                \item Développement d'une application Web de monitoring des résultats
+			\end{itemize}
+		\end{alertblock}
+	}
+\end{frame}
+
+\begin{frame}{}
+  \centering \huge
+  \emph{Merci pour votre attention}
+\end{frame}
+
+\end{document}
+
