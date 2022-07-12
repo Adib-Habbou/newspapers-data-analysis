@@ -60,10 +60,14 @@ with st.container():
 with st.container():
     st.header("Classification Models Accuracies")
     acc = pd.DataFrame(
-        ['K Nearest Neighbor', 'Logistic Regression', 'Decision Tree', 'Random Forest', 'Support Vector Machine',
-         'Stochastic Gradient Descent', 'Multi-Layer Perceptron'], [71, 85, 72, 84, 85, 85, 83])
-    fig = px.scatter(acc, color='value', labels={'value': 'Machine Learning Model', 'index': 'Accuracy Score (%)'})
-    fig.update_traces(marker=dict(size=20, line=dict(width=1, color="DarkSlateGrey")), selector=dict(mode="markers"))
+        ['K Nearest Neighbor', 'Logistic Regression', 'Decision Tree',
+         'Random Forest', 'Support Vector Machine',
+         'Stochastic Gradient Descent', 'Multi-Layer Perceptron'],
+        [71, 85, 72, 84, 85, 85, 83])
+    fig = px.scatter(acc, color='value',
+                     labels={'value': 'Machine Learning Model', 'index': 'Accuracy Score (%)'})
+    fig.update_traces(marker=dict(size=20, line=dict(width=1, color="DarkSlateGrey")),
+                      selector=dict(mode="markers"))
     st.plotly_chart(fig, use_container_width=True)
 
 # ---Confusion Matrix---
@@ -72,12 +76,10 @@ with st.container():
     st.header("Confusion Matrix Logistic Regression")
     LRmat = Image.open('image/LRmat.png')
     st.image(LRmat, width=1200)
-
 with st.container():
     st.header("Confusion Matrix Stochastic Gradient Descent")
     SGDmat = Image.open('image/SGDmat.png')
     st.image(SGDmat, width=1200)
-
 with st.container():
     st.header("Confusion Matrix Support Vector Machine")
     SVMmat = Image.open('image/SVMmat.png')
