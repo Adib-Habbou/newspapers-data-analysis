@@ -13,3 +13,5 @@ Intership at the High Commission for Planning of Morocco as an NLP Data Scientis
   - Stochastic Gradient Descent
   - Multi-Layer Perceptron
 - Designed an interactive DashBoard to present models results with *Streamlit*
+
+![](https://github.com/Adib-Habbou/portfolio/blob/main/images/pyLDAvis.png)
