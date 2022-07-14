@@ -160,18 +160,30 @@ keywords={true,false,null,y,n},
 \end{frame}
 
 \section{Objectifs}
-\subsection{Environnement}
-\begin{frame}{Environnement}
+\subsection{Contexte}
+\begin{frame}{Contexte}
+        \begin{textblock*}{3cm}(1cm,2cm)
+		\includegraphics[width=2.2cm]{mwn.png}
+	\end{textblock*}
+
+	\begin{textblock*}{3cm}(4.6cm,1.8cm)
+		\includegraphics[width=3.5cm]{matin.png}
+	\end{textblock*}
+
+        \begin{textblock*}{3cm}(9.3cm,2.1cm)
+		\includegraphics[width=2.8cm]{hespress.jpg}
+	\end{textblock*}
+
+        \vspace{1.5cm}
+
 	\begin{itemize}
-		\item Encadré par \textbf{Oumaima Hourrane}, doctorante et ingénieur en ML
-		\item Notebook Python sur \textbf{Google Colaboratory}
-            \item Script Python sur \textbf{PyCharm}\newline
-            \item Trois \textbf{sites de presse en ligne} marocaine étudié :
-                \begin{enumerate}
-                    \item \normalsize{Morocco World News $\rightarrow$ Anglais}
-                    \item \normalsize{Le Matin $\rightarrow$ Français}
-                    \item \normalsize{Hespress $\rightarrow$ Arabe}
-                \end{enumerate}
+		\item Récupération et analyse d'articles de \textbf{presse en ligne marocaine}
+            \vspace{0.3cm}
+            \begin{enumerate}
+                \item \normalsize{Morocco World News $\rightarrow$ Anglais}
+                \item \normalsize{Le Matin $\rightarrow$ Français}
+                \item \normalsize{Hespress $\rightarrow$ Arabe}
+            \end{enumerate}
         \end{itemize}
 \end{frame}
 
@@ -342,7 +354,7 @@ keywords={true,false,null,y,n},
         \visible<2->{\begin{block}{Calcul de probabilité}
 		\begin{itemize}
             \item $\mathcal{P}(t | d)$ : la probabilité que le document $d$ soit assigné au topic $t$
-            \item $\mathcal{P}(w | t)$ : la probabilité que le thème $t$ soit assigné au mot $w$
+            \item $\mathcal{P}(w | t)$ : la probabilité que le topic $t$ soit assigné au mot $w$
             \end{itemize}
 	\end{block}}
 
@@ -408,7 +420,15 @@ keywords={true,false,null,y,n},
 \begin{frame}{Résultat Web Scraping}
     \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.42]{df_scrap.png}
+    \includegraphics[width=12cm, height=4cm]{df_scrap.png}
+    \caption{Data Frame de Morocco World News}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Résultat Web Scraping}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.65]{df_scrap_cat.png}
     \caption{Data Frame de Morocco World News}
     \end{figure}
 \end{frame}
@@ -417,7 +437,8 @@ keywords={true,false,null,y,n},
 \begin{frame}{Résultat Topic Modeling}
     \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.22]{pyLDAvis.png}
+    \includegraphics[scale=0.35]{pyLDAvis.png}
+    \caption{Capture d'écran résultat pyLDAvis}
     \end{figure}
 \end{frame}
 
@@ -430,10 +451,19 @@ keywords={true,false,null,y,n},
     \end{figure}
 \end{frame}
 
+\begin{frame}{Rapport de classification}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.7]{report.png}
+    \caption{Rapport de classification pour le SVM}
+    \end{figure}
+\end{frame}
+
 \begin{frame}{Matrice de confusion}
     \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.4]{conf.png}
+    \includegraphics[scale=0.35]{conf.png}
+    \caption{Matrice de confusion pour le SVM}
     \end{figure}
 \end{frame}
 
@@ -441,7 +471,24 @@ keywords={true,false,null,y,n},
 \begin{frame}{Résultat Dashboard}
     \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.3]{Dash 1.png}
+    \includegraphics[scale=0.25]{Dash 1.png}
+    \caption{Capture d'écran du Dashboard}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Résultat Dashboard}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.2]{Dash 3.png}
+    \caption{Capture d'écran du Dashboard}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Résultat Dashboard}
+    \begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.2]{Dash 4.png}
+    \caption{Capture d'écran du Dashboard}
     \end{figure}
 \end{frame}
 
